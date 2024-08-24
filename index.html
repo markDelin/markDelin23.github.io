@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshmen Orientation Record</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .audio-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+        }
+
+        /* Fixed message box styling */
+        .message-box {
+            margin-top: 20px;
+            width: 300px;
+            background-color: #e9ecef;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Title -->
+    <div class="title">Freshmen Orientation Record</div>
+
+    <!-- First Audio Player -->
+    <div class="audio-container">
+        <h2>Audio 1</h2>
+        <audio id="audioPlayer1">
+            <source src="audio-file1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button id="playButton1">Play</button>
+        <label for="timeSlider1">Jump to minute:</label>
+        <input type="range" id="timeSlider1" min="0" max="5" step="1" value="0">
+    </div>
+
+    <!-- Second Audio Player -->
+    <div class="audio-container">
+        <h2>Audio 2</h2>
+        <audio id="audioPlayer2">
+            <source src="audio-file2.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <button id="playButton2">Play</button>
+        <label for="timeSlider2">Jump to minute:</label>
+        <input type="range" id="timeSlider2" min="0" max="5" step="1" value="0">
+    </div>
+
+    <!-- Fixed Message Box -->
+    <div class="message-box">
+        kaya dalawa audio yan ging cut ko kase hehe
+    </div>
+
+    <script>
+        // Function to handle play/pause and slider time adjustment
+        function handleAudioPlayer(audioId, buttonId, sliderId) {
+            const audioPlayer = document.getElementById(audioId);
+            const playButton = document.getElementById(buttonId);
+            const timeSlider = document.getElementById(sliderId);
+
+            // Play/pause functionality
+            playButton.addEventListener('click', function() {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    playButton.textContent = 'Pause';
+                } else {
+                    audioPlayer.pause();
+                    playButton.textContent = 'Play';
+                }
+            });
+
+            // Adjust playback time based on slider value
+            timeSlider.addEventListener('input', function() {
+                const minutes = timeSlider.value;
+                audioPlayer.currentTime = minutes * 60;
+            });
+
+            // Update slider position as the audio plays
+            audioPlayer.addEventListener('timeupdate', function() {
+                const minutes = Math.floor(audioPlayer.currentTime / 60);
+                timeSlider.value = minutes;
+            });
+
+            // Reset button text when the audio ends
+            audioPlayer.addEventListener('ended', function() {
+                playButton.textContent = 'Play';
+            });
+        }
+
+        // Initialize both audio players
+        handleAudioPlayer('audioPlayer1', 'playButton1', 'timeSlider1');
+        handleAudioPlayer('audioPlayer2', 'playButton2', 'timeSlider2');
+    </script>
+
+</body>
+</html>
