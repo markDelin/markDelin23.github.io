@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarendon College Vision and Mission</title>
+    <style>
+        /* Import Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://example.com/your-background-image.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 3px solid #000080;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+            box-shadow: 6px 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: #000080;
+            font-size: 36px;
+            margin-bottom: 40px;
+            font-weight: bold;
+        }
+
+        h2 {
+            color: #000080;
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            border-bottom: 2px solid #000080;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .play-button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 7px 20px;
+            background-color: #000080;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .play-button:hover {
+            background-color: #4169e1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Clarendon College Vision and Mission</h1>
+
+    <div class="box">
+        <h2>Vision</h2>
+        <p>
+            Clarendon College endeavors to remain a premiere center of learning by uplifting the lives of our people through the delivery of high-quality and inclusive education with compassion and integrity.
+        </p>
+        <div class="play-button" onclick="playAudio('vision-audio.mp3')">Play Audio</div>
+    </div>
+
+    <div class="box">
+        <h2>Mission</h2>
+        <p>
+            At Clarendon College, we believe that all students should experience high-quality, holistic, and inclusive education that will result in personal transformation informed by Filipino values. We remain committed to providing our learners with a safe and positive environment to reach their highest potential by developing them into leaders who are responsive to the needs of local, national, and global communities.
+        </p>
+        <div class="play-button" onclick="playAudio('mission-audio.mp3')">Play Audio</div>
+    </div>
+
+    <script>
+        function playAudio(src) {
+            let audio = new Audio(src);
+            audio.play();
+        }
+    </script>
+</body>
+</html>
