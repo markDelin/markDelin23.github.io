@@ -18,6 +18,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
         .box {
@@ -80,6 +81,14 @@
             background-color: #4169e1;
             transform: scale(1.1);
         }
+
+        footer {
+            margin-top: auto;
+            padding: 20px 0;
+            text-align: center;
+            color: #555;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -101,6 +110,10 @@
         <div class="play-button" onclick="playAudio('2.mp3')">Play Audio</div>
     </div>
 
+    <footer>
+        Created by Reymark
+    </footer>
+
     <script>
         function playAudio(src) {
             let audio = new Audio(src);
@@ -108,4 +121,4 @@
         }
     </script>
 </body>
-</html>
+</html
